@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+# SimulinkUploadWorkspace
 
-You can use the [editor on GitHub](https://github.com/TexnoMann/SimulinkUploadWorkspace/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+##Описание
+Программа для выгрузки переменных из matlab файла и замены этих переменных на их значения в simulink модели.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Установка
+Используйте пакетный менеджер [pip3](https://pip.pypa.io/en/stable/) для установки всех необходимых пакетов.
+```bash
+git clone https://github.com/TexnoMann/SimulinkUploadWorkspace.git
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+```bash
+pip3 install -r requirements.txt
+```
 
-### Jekyll Themes
+## Запуск
+Для запуска программы из под bash:
+```bash
+./uploader/modelVarChange.py  [-in|--input Путь до исходного .slx файла] [-out|--output Путь сохранения до выходного .slx файла] [-m|--mfile Путь до matlab файла с переменными для выгрузки]
+```
+## Примечание
+Пограмма меняет переменные на их значения в slx для блоков "step, transfer func, constant, gain", а также в теле функций Matlab Function.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/TexnoMann/SimulinkUploadWorkspace/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Внимание:
+Не меняет значение переменных в аргументах функций и значение переменных, являющихся матрицами или другими структурами.
 
-### Support or Contact
+Пример с использованием абсолютного пути:
+```bash
+./uploader/modelVarChange.py /home/user/uploader/program/text.csv /home/user/csvToXls/program/text.xls -g P3138 P3134
+```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
