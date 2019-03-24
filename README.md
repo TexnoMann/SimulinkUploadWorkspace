@@ -27,7 +27,7 @@ pip3 install -r requirements.txt
 
 Пример с использованием абсолютного пути:
 ```bash
-./run.sh /home/user/csvToXls/program/text.csv /home/user/csvToXls/program/text.xls -g P3138 P3134
+  ./uploader/modelVarChange.py -in /home/user/matlab/model.slx -out /home/user/matlab_val.slx -m /home/user/matlab_init.m
 ```
 
 ## License
